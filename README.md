@@ -11,7 +11,7 @@ The Maple Street Pet Adoption Center has an API for its pets, built with Express
 - `app.js`: `createApp()`, which builds the Express app: it reads JSON bodies, sends every `/pets` address to the routes, and answers 404 for any other address and 500 for an error. The comment at its top lists every request and its answer. Ready to use.
 - `problems.js`: `sendProblem`, which sends every error in one shape, `{ status, title, detail }`. Ready to use.
 - `server.js`: starts the API at `http://localhost:3100`. Ready to use.
-- `pets.http`: the requests to try, for VS Code's REST Client extension. Ready to use.
+- `pets.insomnia.json`: the requests to try, as an Insomnia collection. Ready to use.
 - `test/app.test.js`: the tests, which send requests to `createApp()` with Supertest. You don't need to change this file.
 - `package.json`: the project's settings, its scripts (`start`, `dev` and `test`), and the packages it uses at exact versions: Express, and Supertest for the tests. Ready to use.
 
@@ -31,7 +31,7 @@ It makes a `node_modules` folder. That folder is in `.gitignore`, so Git leaves 
 npm start
 ```
 
-The terminal says `Maple Street's pet API is listening on http://localhost:3100` and keeps running. Open `http://localhost:3100/pets` in your browser, or open `pets.http` and click **Send Request** above any request; REST Client shows the answer beside it. Stop the server with **Ctrl+C**. Every start begins again from the same six pets, because they're kept in memory.
+The terminal says `Maple Street's pet API is listening on http://localhost:3100` and keeps running. Open `http://localhost:3100/pets` in your browser, or, in Insomnia (the course's lesson *Setup: Insomnia* installs it), click **Import** in your `MongoDB in Depth` project, choose `pets.insomnia.json`, and send any request; its description says what to expect. Stop the server with **Ctrl+C**. Every start begins again from the same six pets, because they're kept in memory.
 
 `npm run dev` starts it with `node --watch`, so it restarts each time you save a file.
 

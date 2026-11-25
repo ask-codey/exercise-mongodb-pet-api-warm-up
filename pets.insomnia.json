@@ -1,0 +1,170 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2026-11-25T00:00:00Z",
+  "__export_source": "ask-codey:exercise",
+  "resources": [
+    {
+      "_id": "wrk_pets",
+      "_type": "workspace",
+      "parentId": null,
+      "name": "Pet API Warm-Up",
+      "description": "Exercise: Pet API Warm-Up. Start the server first (npm start), then send the requests in order; each one's description says what to expect. Every start of the server begins again from the same six pets. If your server runs at another address, change base_url in the Base Environment.",
+      "scope": "collection"
+    },
+    {
+      "_id": "env_pets_base",
+      "_type": "environment",
+      "parentId": "wrk_pets",
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:3100"
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "base_url"
+        ]
+      },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 0
+    },
+    {
+      "_id": "jar_pets",
+      "_type": "cookie_jar",
+      "parentId": "wrk_pets",
+      "name": "Default Jar",
+      "cookies": []
+    },
+    {
+      "_id": "req_pets_100",
+      "_type": "request",
+      "parentId": "wrk_pets",
+      "name": "1. Every pet",
+      "description": "Expect: 200, all six pets.",
+      "method": "GET",
+      "url": "{{ _.base_url }}/pets",
+      "body": {},
+      "headers": [],
+      "parameters": [],
+      "authentication": {},
+      "metaSortKey": 100,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_pets_110",
+      "_type": "request",
+      "parentId": "wrk_pets",
+      "name": "2. Only the cats",
+      "description": "Expect: 200, the two cats, Mochi and Juniper.",
+      "method": "GET",
+      "url": "{{ _.base_url }}/pets?species=cat",
+      "body": {},
+      "headers": [],
+      "parameters": [],
+      "authentication": {},
+      "metaSortKey": 110,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_pets_120",
+      "_type": "request",
+      "parentId": "wrk_pets",
+      "name": "3. Mochi, the pet whose id is \"2\"",
+      "description": "Expect: 200, Mochi.",
+      "method": "GET",
+      "url": "{{ _.base_url }}/pets/2",
+      "body": {},
+      "headers": [],
+      "parameters": [],
+      "authentication": {},
+      "metaSortKey": 120,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_pets_130",
+      "_type": "request",
+      "parentId": "wrk_pets",
+      "name": "4. No pet has the id 99",
+      "description": "Expect: 404.",
+      "method": "GET",
+      "url": "{{ _.base_url }}/pets/99",
+      "body": {},
+      "headers": [],
+      "parameters": [],
+      "authentication": {},
+      "metaSortKey": 130,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_pets_140",
+      "_type": "request",
+      "parentId": "wrk_pets",
+      "name": "5. Add Waffles",
+      "description": "Expect: 201, Waffles with the id \"7\" and the status \"available\".",
+      "method": "POST",
+      "url": "{{ _.base_url }}/pets",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{ \"name\": \"Waffles\", \"species\": \"dog\", \"age\": 4, \"traits\": [\"good with kids\"] }"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "parameters": [],
+      "authentication": {},
+      "metaSortKey": 140,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    },
+    {
+      "_id": "req_pets_150",
+      "_type": "request",
+      "parentId": "wrk_pets",
+      "name": "6. A new pet with no name",
+      "description": "Expect: 400.",
+      "method": "POST",
+      "url": "{{ _.base_url }}/pets",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{ \"species\": \"cat\", \"age\": 2 }"
+      },
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "parameters": [],
+      "authentication": {},
+      "metaSortKey": 150,
+      "settingSendCookies": true,
+      "settingStoreCookies": true,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global"
+    }
+  ]
+}
